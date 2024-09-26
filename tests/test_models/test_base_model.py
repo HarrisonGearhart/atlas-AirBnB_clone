@@ -21,6 +21,7 @@ class test(unittest.TestCase):
 		a = BaseModel()
 		my_dict = a.to_dict()
 		self.assertEqual(type(my_dict), dict)
+		print("OK")
 
 if __name__ == "__main__":
 	unittest.main()
