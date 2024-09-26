@@ -19,4 +19,4 @@ class test(unittest.TestCase):
 		self.assertNotEqual(save1, save2)
 
 if __name__ == "__main__":
-	unittest.main
+	unittest.main()
