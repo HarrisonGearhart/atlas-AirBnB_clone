@@ -19,8 +19,7 @@ class test(unittest.TestCase):
 
 	def test_to_dict(self):
 		a = BaseModel()
-		my_dict = a.to_dict()
-		self.assertEqual(type(my_dict), dict)
+		self.assertEqual(dict, type(a.my_dict()))
 
 if __name__ == "__main__":
 	unittest.main()
