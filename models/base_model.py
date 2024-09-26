@@ -3,7 +3,7 @@
 This is a file holding a base class that will be inherited by
 many other classes
 """
-import uuid
+import uuid, unittest
 from datetime import datetime
 
 
