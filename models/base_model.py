@@ -27,6 +27,9 @@ class BaseModel:
 		This is a coversion of a instance to dictionary
 		"""
 		temp = {
+			"my_number": 89,
+			"name": __name__,
+			"__class__": self.__class__.__name__,
 			"id": self.id,
 			"created_at": self.created_at.isoformat(),
 			"updated_at": self.updated_at.isoformat(),
