@@ -9,7 +9,8 @@ class FileStorage:
     Class for storing and retrieving data
     Private class attributes:
         __file_path: string - path to the JSON file (ex: file.json)
-        __objects: dictionary - empty but will store all objects by <class name>.id 
+        __objects: dictionary - empty but will store all objects
+        by <class name>.id
         (ex: to store a BaseModel object with id=12121212,
         the key will be BaseModel.12121212)
     Public instance methods:
@@ -28,7 +29,7 @@ class FileStorage:
         return self._FileStorage__objects
 
     def new(self, obj):
-        key = "{}.{}".format(type(obj).__name__, obj["id"])
+        key = f"{self.__class__.__name__}.id"
         self._FileStorage__objects[key] = obj
 
     def save(self):
@@ -39,5 +40,5 @@ class FileStorage:
         try:
             with open(self._FileStorage__file_path, "r") as file:
                 self._FileStorage__objects = json.load(file)
-        except:
+        finally:
             pass
