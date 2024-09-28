@@ -2,6 +2,7 @@
 """Module for FileStorage class
 serializes instances to a JSON file and deserializes JSON file to instances"""
 import json
+import uuid
 
 
 class FileStorage:
@@ -29,7 +30,7 @@ class FileStorage:
         return self._FileStorage__objects
 
     def new(self, obj):
-        key = f"{obj['__class__']}.{obj['id']}"
+        key = "{}.{}".format(obj.__class__.__name__, str(uuid.uuid4()))
         self._FileStorage__objects[key] = obj
 
     def save(self):
