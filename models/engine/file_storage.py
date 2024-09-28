@@ -39,6 +39,7 @@ class FileStorage:
     def reload(self):
         try:
             with open(self._FileStorage__file_path, "r") as file:
-                self._FileStorage__objects = json.load(file)
-        finally:
+                key = f"{self.__class__.__name__}.id"
+                self._FileStorage__objects[key] = json.load(file)
+        except:
             pass
