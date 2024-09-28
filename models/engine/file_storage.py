@@ -29,7 +29,7 @@ class FileStorage:
         return self._FileStorage__objects
 
     def new(self, obj):
-        key = f"{self.__class__.__name__}.id"
+        key = f"{obj['__class__']}.{obj['id']}"
         self._FileStorage__objects[key] = obj
 
     def save(self):
@@ -39,7 +39,6 @@ class FileStorage:
     def reload(self):
         try:
             with open(self._FileStorage__file_path, "r") as file:
-                key = f"{self.__class__.__name__}.id"
-                self._FileStorage__objects[key] = json.load(file)
+                self._FileStorage__objects = json.load(file)
         except:
             pass
