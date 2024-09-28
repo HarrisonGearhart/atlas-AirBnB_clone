@@ -20,8 +20,6 @@ class BaseModel:
                     self.__dict__["updated_at"] = datetime.strptime(
                         kwargs["created_at"], "%Y-%m-%dT%H:%M:%S.%f"
                     )
-                elif key == "id":
-                    self.__dict__["id"] = str(uuid.uuid4())
                 else:
                     self.__dict__[key] = kwargs[key]
         else:
