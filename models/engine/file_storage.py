@@ -33,7 +33,7 @@ class FileStorage:
         self._FileStorage__objects[key] = obj
 
     def save(self):
-        dict = {}
+        dict = self._FileStorage__objects
         for key, value in self._FileStorage__objects.items():
             dict[key] = value.to_dict()
         with open(self._FileStorage__file_path, "w") as file:
