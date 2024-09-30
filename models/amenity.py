@@ -3,7 +3,7 @@
 from models.base_model import BaseModel
 
 
-class City(BaseModel):
+class Amenity(BaseModel):
 	"""
 	class represtenting the aneninities associated with the property
 	attributes-

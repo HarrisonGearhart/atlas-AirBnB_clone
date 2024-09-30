@@ -3,9 +3,9 @@
 from models.base_model import BaseModel
 
 
-class City(BaseModel):
+class Place(BaseModel):
 	"""
-	class represtenting what city the rental property is located
+	class represtenting the place the user is staying
 	attributes-
 	city_id: string - empty string: it will be the City.id
 	user_id: string - empty string: it will be the User.id
