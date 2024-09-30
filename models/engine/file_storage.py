@@ -30,7 +30,7 @@ class FileStorage:
         return self._FileStorage__objects
 
     def new(self, obj):
-        key = "{}.{}".format(obj.__class__.__name__, str(uuid.uuid4()))
+        key = "{}.{}".format(obj.__class__.__name__, id(obj))
         self._FileStorage__objects[key] = obj
 
     def save(self):
