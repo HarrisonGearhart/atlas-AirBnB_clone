@@ -22,7 +22,7 @@ class FileStorage:
         If the file doesn’t exist, no exception should be raised)
     """
     def __init__(self):
-        self._FileStorage__file_path = "file.json"
+        self.__file_path = "file.json"
         self._FileStorage__objects = {}
 
     def all(self):
@@ -33,16 +33,15 @@ class FileStorage:
         self._FileStorage__objects[key] = obj
 
     def save(self):
-        dict = {}
+        temp = {}
         for key, value in self._FileStorage__objects.items():
-            dict[key] = value.to_dict()
-            self._FileStorage__objects[key] = dict[key]
-        with open(self._FileStorage__file_path, "w") as file:
-            json.dump(dict, file)
+            temp[key] = value.to_dict()
+        with open(self.__file_path, "w") as file:
+            json.dump(temp, file)
 
     def reload(self):
         try:
-            with open(self._FileStorage__file_path, "r") as file:
+            with open(self.__file_path, "r") as file:
                 obj_list = json.load(file)
                 for key, value in obj_list.items():
                     string = key.split(".")
