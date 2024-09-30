@@ -2,8 +2,7 @@
 """Module for FileStorage class
 serializes instances to a JSON file and deserializes JSON file to instances"""
 import json
-import uuid
-
+from models.base_model import BaseModel
 
 class FileStorage:
     """
@@ -30,16 +29,25 @@ class FileStorage:
         return self._FileStorage__objects
 
     def new(self, obj):
-        key = "{}.{}".format(obj.__class__.__name__, id(obj))
+        key = "{}.{}".format(obj.__class__.__name__, obj.id)
         self._FileStorage__objects[key] = obj
 
     def save(self):
+        dict = {}
+        for key, value in self._FileStorage__objects.items():
+            dict[key] = value.to_dict()
         with open(self._FileStorage__file_path, "w") as file:
-            json.dump(self._FileStorage__objects, file)
+            json.dump(dict, file)
 
     def reload(self):
         try:
             with open(self._FileStorage__file_path, "r") as file:
-                self._FileStorage__objects = json.load(file)
-        except:
+                obj_list = json.load(file)
+                for key, value in obj_list.items():
+                    string = key.split(".")
+                    obj = eval(string[0])(**value)
+                    self._FileStorage__objects[key] = obj
+
+        except Exception as e:
+            print(e)
             pass
