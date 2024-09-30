@@ -48,6 +48,5 @@ class FileStorage:
                     obj = eval(string[0])(**value)
                     self._FileStorage__objects[key] = obj
 
-        except Exception as e:
-            print(e)
+        except Exception:
             pass
