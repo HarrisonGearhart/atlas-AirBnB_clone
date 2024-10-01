@@ -157,12 +157,12 @@ class HBNBCommand(cmd.Cmd):
                                     if arg[3] in integers:
                                         try:
                                             arg[4] = int(arg[4])
-                                        except:
+                                        except Exception:
                                             arg[4] = 0
                                     elif arg[2] in floats:
                                         try:
                                             arg[4] = float(arg[4])
-                                        except:
+                                        except Exception:
                                             arg[4] = 0.0
                                 setattr(storage.all()[key], arg[3], arg[4])
                                 storage.all()[key].save()
