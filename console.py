@@ -122,7 +122,7 @@ class HBNBCommand(cmd.Cmd):
                 new_list = str(obj)
                 print(new_list)
 
-    def do_update(self, *arg):
+    def do_update(self, arg):
         """
         do-update: Updates an instance based on the class name/id
         by adding or updating attribute (save the change into the JSON file)
