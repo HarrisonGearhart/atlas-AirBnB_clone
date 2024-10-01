@@ -10,7 +10,8 @@ import models
 class test(unittest.TestCase):
     def test__file_path(self):
         brick = models.engine.file_storage.FileStorage()
-        self.assertTrue(brick._FileStorage__file_path, "file.json")
+        with open(brick._FileStorage__file_path, "r") as file:
+            self.assertTrue(True)
         
 
 if __name__ == "__main__":
