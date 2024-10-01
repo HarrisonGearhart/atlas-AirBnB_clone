@@ -146,7 +146,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** class name missing **")
             elif words[0] in storage.classes():
                 if len(words) > 1:
-                    key = "{}.{}",format(words[0], words[1])
+                    key = "{}.{}".format(words[0], words[1])
                     if key in storage.all():
                         if len(words) > 2:
                             if len(words) > 3:
