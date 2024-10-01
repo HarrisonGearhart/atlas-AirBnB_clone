@@ -122,7 +122,7 @@ class HBNBCommand(cmd.Cmd):
                 new_list = str(obj)
                 print(new_list)
 
-    def do_update(self, *arg):
+    def do_update(self, arg):
         """
         do-update: Updates an instance based on the class name/id
         by adding or updating attribute (save the change into the JSON file)
@@ -145,26 +145,26 @@ class HBNBCommand(cmd.Cmd):
             integers = ["number_rooms", "number_bathrooms",
                          "max_guest", "price_by_night"]
             floats = ["latitude", "longitude"]
-            if len(arg) == 1:
+            if len(arg) == 0:
                 print("** class name missing **")
-            elif arg[1] in storage.classes():
+            elif arg[0] in storage.classes():
                 if len(arg) > 1:
-                    key = "{}.{}".format(arg[1], arg[2])
+                    key = "{}.{}".format(arg[0], arg[1])
                     if key in storage.all():
                         if len(arg) > 2:
                             if len(arg) > 3:
-                                if arg[3] == "Place":
-                                    if arg[3] in integers:
+                                if arg[0] == "Place":
+                                    if arg[2] in integers:
                                         try:
-                                            arg[4] = int(arg[4])
+                                            arg[3] = int(arg[3])
                                         except Exception:
-                                            arg[4] = 0
+                                            arg[3] = 0
                                     elif arg[2] in floats:
                                         try:
-                                            arg[4] = float(arg[4])
+                                            arg[3] = float(arg[3])
                                         except Exception:
-                                            arg[4] = 0.0
-                                setattr(storage.all()[key], arg[3], arg[4])
+                                            arg[3] = 0.0
+                                setattr(storage.all()[key], arg[2], arg[3])
                                 storage.all()[key].save()
                             else:
                                 print("** value missing **")
