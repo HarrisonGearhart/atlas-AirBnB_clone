@@ -81,6 +81,21 @@ class HBNBCommand(cmd.Cmd):
         If the instance of the class name doesn’t exist for the id, print
         ** no instance found ** (ex: $ destroy BaseModel 121212)
         """
+        if arg == "" or arg is None:
+            print("** class name missing **")
+        else:
+            words = line.split(' ')
+            if words[0] not in storage.classes():
+                print("** class doesn't exist **")
+            elif len(words) < 2:
+                print("** instance id missing **")
+            else:
+                key = "{}.{}".format(words[0], words[1])
+                if key not in storage.all():
+                    print("** no instance found **")
+                else:
+                    del storge.all()[key]
+                    storage.save()
 
     def do_all(self, arg):
         """
