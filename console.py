@@ -110,7 +110,7 @@ class HBNBCommand(cmd.Cmd):
             if words[0] not in storage.classes():
                 print("** class doesn't exist")
             else:
-                for key, obj in storage.all().items()
+                for key, obj in storage.all().items():
                     new = str(obj)
                     if type(obj).__name__ == words[0]:
                         print(new)
