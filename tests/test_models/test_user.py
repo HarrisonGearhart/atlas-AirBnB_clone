@@ -7,7 +7,8 @@ from models.user import User
 
 
 class test(unittest.TestCase):
-
+    def test_email_is_str(self):
+        self.assertEqual
 
 
 if __name__ == "__main__":
