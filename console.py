@@ -106,7 +106,7 @@ class HBNBCommand(cmd.Cmd):
         ** class doesn't exist ** (ex: $ all MyModel)
         """
         if arg != "":
-            words = line.split(' ')
+            words = arg.split(' ')
             if words[0] not in storage.class():
                 print("** class doesn't exist")
             else:
