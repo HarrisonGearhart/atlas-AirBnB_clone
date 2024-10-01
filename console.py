@@ -138,8 +138,7 @@ class HBNBCommand(cmd.Cmd):
         If the value for the attribute name doesn’t exist, print
         ** value missing ** (ex: $ update BaseModel existing-id first_name)
         """
-        if arg != "":
-            words = arg.splt(' ')
+            words = arg.split(' ')
             integers = ["number_rooms", "number_bathrooms", "max_guest", "price_by_night"]
             floats = ["latitude", "longitude"]
             if len(words) == 0:
