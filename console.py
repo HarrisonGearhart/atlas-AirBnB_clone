@@ -114,10 +114,10 @@ class HBNBCommand(cmd.Cmd):
                     new = str(obj)
                     if type(obj).__name__ == words[0]:
                         print(new)
-            else:
-                for key, obj in storage.all().items():
-                    new_list = str(obj)
-                    print(new_list)
+        else:
+            for key, obj in storage.all().items():
+                new_list = str(obj)
+                print(new_list)
 
     def do_update(self, arg):
         """
