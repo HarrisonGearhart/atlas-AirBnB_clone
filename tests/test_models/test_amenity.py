@@ -7,7 +7,8 @@ from models.amenity import Amenity
 
 
 class test(unittest.TestCase):
-
+    def test_name_is_str(self):
+        self.assertEqual(str, type(Amenity.name))
 
 
 if __name__ == "__main__":
