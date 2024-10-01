@@ -56,7 +56,7 @@ class HBNBCommand(cmd.Cmd):
         if arg == "" or arg is None:
             print("** class name missing **")
         else:
-            words = line.split(' ')
+            words = arg.split(' ')
             if words[0] not in storage.classes():
                 print("** class doesn't exist **")
             elif len(words) < 2:
@@ -84,7 +84,7 @@ class HBNBCommand(cmd.Cmd):
         if arg == "" or arg is None:
             print("** class name missing **")
         else:
-            words = line.split(' ')
+            words = arg.split(' ')
             if words[0] not in storage.classes():
                 print("** class doesn't exist **")
             elif len(words) < 2:
