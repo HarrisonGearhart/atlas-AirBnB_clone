@@ -5,6 +5,7 @@ Our cmd module
 import cmd
 import json
 from models.base_model import BaseModel
+from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
@@ -18,17 +19,6 @@ class HBNBCommand(cmd.Cmd):
         Exits the program
         """
         return True
-    
-    def do_create(self, arg):
-        if arg == "":
-            print("** class name is missing **")
-        elif arg != "BaseModel":
-            print("** class doesn't exist **")
-        else:
-            temp = BaseModel
-            with open("file.json", "w") as file:
-                json.dump(temp.to_dict(), file)
-            print(f"{id(temp)}")
 
     do_EOF = do_exit
 
@@ -41,6 +31,14 @@ class HBNBCommand(cmd.Cmd):
         If the class name doesn’t exist, print-
         ** class doesn't exist ** (ex: $ create MyModel)
         """
+        if arg == "" or arg is None:
+            print("** class name is missing **")
+        elif arg not in storage.classes():
+            print("** class doesn't exist **")
+        else:
+            temp = storage.classes()[arg]()
+            temp.save()
+            print(temp.id)
 
     def do_show(self,arg):
         """do_show- Prints the string representation of
@@ -55,6 +53,20 @@ class HBNBCommand(cmd.Cmd):
         If the instance of the class name doesn’t exist for the id, print
         ** no instance found ** (ex: $ show BaseModel 121212)
         """
+        if arg == "" or arg is None:
+            print("** class name missing **")
+        else:
+            words = line.split(' ')
+            if words[0] not in storage.classes():
+                print("** class doesn't exist **")
+            elif len(words) < 2:
+                print("** instance id missing **")
+            else:
+                key = "{}.{}".format(words[0], words[1])
+                if key not in storage.all():
+                    print("** no instance found **")
+                else:
+                    print(storage.all()[key])
 
     def do_destroy(self, arg):
         """
