@@ -105,6 +105,19 @@ class HBNBCommand(cmd.Cmd):
         If the class name doesn’t exist, print
         ** class doesn't exist ** (ex: $ all MyModel)
         """
+        if arg != "":
+            words = line.split(' ')
+            if words[0] not in storage.class():
+                print("** class doesn't exist")
+            else:
+                for key, obj in storage.all().items()
+                    new = str(obj)
+                    if type(obj).__name__ == words[0]:
+                        print(new)
+            else:
+                for key, obj in storage.all().items():
+                    new_list = str(obj)
+                    print(new_list)
 
     def do_update(self, arg):
         """
