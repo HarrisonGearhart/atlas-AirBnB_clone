@@ -94,7 +94,7 @@ class HBNBCommand(cmd.Cmd):
                 if key not in storage.all():
                     print("** no instance found **")
                 else:
-                    del storge.all()[key]
+                    del storage.all()[key]
                     storage.save()
 
     def do_all(self, arg):
