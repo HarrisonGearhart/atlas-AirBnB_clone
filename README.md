@@ -18,6 +18,7 @@ From there you can type help to view all the command to run<br>![image](https://
 
 ## Files
 ### console.py
+command line interface
 
 ### models/base_model.py
 
