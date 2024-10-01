@@ -8,12 +8,8 @@ from models.engine.file_storage import FileStorage
 
 class test(unittest.TestCase):
     def test__file_path(self):
-        obj = FileStorage()
-        try:
-            with open("file.json", "r") as file:
-                self.assertDictEqual(obj, FileStorage)
-        except:
-            pass
+        garb = FileStorage()
+        self.assertEqual(self._FileStorage__file_path, "file.json")
 
 if __name__ == "__main__":
     unittest.main()
