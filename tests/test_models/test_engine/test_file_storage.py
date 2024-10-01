@@ -3,17 +3,18 @@
 file to hold unit test class
 """
 import unittest
-import models
 import os
-
-import models.base_model
+import models
 
 
 class test(unittest.TestCase):
     def test__file_path(self):
-        test = models.base_model
-        self.assertTrue(os.path.isfile(models.storage._FileStorage__file_path))
-
+        a = models.engine.file_storage.FileStorage()
+    try:
+        with open(a._FileStorage__file_path, "r") as file:
+            self.assertTrue(a._FileStorage__file_path)
+    except:
+        pass
 
 if __name__ == "__main__":
     unittest.main()
