@@ -149,22 +149,22 @@ class HBNBCommand(cmd.Cmd):
                 print("** class name missing **")
             elif arg[0] in storage.classes():
                 if len(arg) > 1:
-                    key = "{}.{}".format(arg[1], arg[2])
+                    key = "{}.{}".format(arg[0], arg[1])
                     if key in storage.all():
                         if len(arg) > 2:
                             if len(arg) > 3:
-                                if arg[3] == "Place":
-                                    if arg[3] in integers:
+                                if arg[0] == "Place":
+                                    if arg[2] in integers:
                                         try:
-                                            arg[4] = int(arg[4])
+                                            arg[3] = int(arg[3])
                                         except Exception:
-                                            arg[4] = 0
+                                            arg[3] = 0
                                     elif arg[2] in floats:
                                         try:
-                                            arg[4] = float(arg[4])
+                                            arg[3] = float(arg[3])
                                         except Exception:
-                                            arg[4] = 0.0
-                                setattr(storage.all()[key], arg[3], arg[4])
+                                            arg[3] = 0.0
+                                setattr(storage.all()[key], arg[2], arg[3])
                                 storage.all()[key].save()
                             else:
                                 print("** value missing **")
