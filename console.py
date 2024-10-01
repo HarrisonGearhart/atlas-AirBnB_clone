@@ -32,7 +32,7 @@ class HBNBCommand(cmd.Cmd):
         ** class doesn't exist ** (ex: $ create MyModel)
         """
         if arg == "" or arg is None:
-            print("** class name is missing **")
+            print("** class name missing **")
         elif arg not in storage.classes():
             print("** class doesn't exist **")
         else:
