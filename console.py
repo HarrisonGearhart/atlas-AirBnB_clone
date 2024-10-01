@@ -72,7 +72,8 @@ class HBNBCommand(cmd.Cmd):
     def do_destroy(self, arg):
         """
         do_destroy- Deletes an instance based on the class name and id
-        (save the change into the JSON file). Ex: $ destroy BaseModel 1234-1234-1234.
+        (save the change into the JSON file).
+        Ex: $ destroy BaseModel 1234-1234-1234.
         If the class name is missing, print
         ** class name missing ** (ex: $ destroy)
         If the class name doesn’t exist, print
@@ -101,7 +102,8 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, arg):
         """
         do_all - Prints all string representation of
-        all instances based or not on the class name. Ex: $ all BaseModel or $ all.
+        all instances based or not on the class name.
+        Ex: $ all BaseModel or $ all.
         The printed result must be a list of strings (like the example below)
         If the class name doesn’t exist, print
         ** class doesn't exist ** (ex: $ all MyModel)
