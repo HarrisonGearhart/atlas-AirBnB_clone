@@ -143,7 +143,7 @@ class HBNBCommand(cmd.Cmd):
         """
         if arg != "":
             words = arg.split(' ')
-            integers = ["number_rooms", "number_bathrooms", 
+            integers = ["number_rooms", "number_bathrooms",
                         "max_guest", "price_by_night"]
             floats = ["latitude", "longitude"]
             if len(words) == 0:
