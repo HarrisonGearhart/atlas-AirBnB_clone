@@ -4,9 +4,9 @@ from models.base_model import BaseModel
 
 
 class Amenity(BaseModel):
-	"""
-	class represtenting the aneninities associated with the property
-	attributes-
-	name (empty string)
-	"""
-	name = ""
+    """
+    class represtenting the aneninities associated with the property
+    attributes-
+    name (empty string)
+    """
+    name = ""
