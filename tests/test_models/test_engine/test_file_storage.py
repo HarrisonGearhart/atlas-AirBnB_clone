@@ -12,9 +12,7 @@ import models.base_model
 class test(unittest.TestCase):
     def test__file_path(self):
         test = models.base_model
-        my_file = models.storage._FileStorage__file_path
-        path = os.getcwd() + "/" + my_file
-        self.assertTrue(os.path.isfile(path))
+        self.assertTrue(os.path.isfile(models.storage._FileStorage__file_path))
 
 
 if __name__ == "__main__":
