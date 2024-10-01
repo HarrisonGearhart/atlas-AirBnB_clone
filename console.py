@@ -142,8 +142,7 @@ class HBNBCommand(cmd.Cmd):
         ** value missing ** (ex: $ update BaseModel existing-id first_name)
         """
         if arg != "":
-            integers = ["number_rooms", "number_bathrooms",
-            "max_guest", "price_by_night"]
+            integers = ["number_rooms", "number_bathrooms", "max_guest", "price_by_night"]
             floats = ["latitude", "longitude"]
             if len(arg) == 0:
                 print("** class name missing **")
@@ -178,6 +177,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
         else:
             print("** class name missing **")
+
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
