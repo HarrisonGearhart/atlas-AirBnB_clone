@@ -119,7 +119,7 @@ class HBNBCommand(cmd.Cmd):
                 new_list = str(obj)
                 print(new_list)
 
-    def do_update(self, arg):
+    def do_update(self, *arg):
         """
         do-update: Updates an instance based on the class name and id 
         by adding or updating attribute (save the change into the JSON file)
@@ -138,7 +138,6 @@ class HBNBCommand(cmd.Cmd):
         If the value for the attribute name doesn’t exist, print
         ** value missing ** (ex: $ update BaseModel existing-id first_name)
         """
-        words = arg.splt(' ')
         integers = ["number_rooms", "number_bathrooms", "max_guest", "price_by_night"]
         floats = ["latitude", "longitude"]
         if len(words) == 0:
