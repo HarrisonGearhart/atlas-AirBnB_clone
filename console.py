@@ -41,7 +41,7 @@ class HBNBCommand(cmd.Cmd):
             temp.save()
             print(temp.id)
 
-    def do_show(self,arg):
+    def do_show(self, arg):
         """do_show- Prints the string representation of
         an instance based on the class name and id.
         Ex: $ show BaseModel 1234-1234-1234.
