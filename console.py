@@ -108,7 +108,7 @@ class HBNBCommand(cmd.Cmd):
         if arg != "":
             words = arg.split(' ')
             if words[0] not in storage.classes():
-                print("** class doesn't exist")
+                print("** class doesn't exist **")
             else:
                 for key, obj in storage.all().items():
                     new = str(obj)
