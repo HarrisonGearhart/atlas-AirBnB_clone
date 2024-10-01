@@ -8,9 +8,10 @@ import models
 
 
 class test(unittest.TestCase):
-    def test___file_path(self):
-        laugh = models.FileStorage
-        self.assertTrue(laugh)
+    def test__file_path(self):
+        path = models.storage._FileStorage__file_path
+        self.assertTrue(path)
+        
 
 if __name__ == "__main__":
     unittest.main()
