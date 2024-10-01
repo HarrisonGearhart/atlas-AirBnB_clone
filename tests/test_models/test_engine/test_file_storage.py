@@ -8,7 +8,7 @@ import models
 
 
 class test(unittest.TestCase):
-    def test__file_path(self):
+    def test___file_path(self):
         laugh = models.FileStorage
         self.assertTrue(laugh)
 
