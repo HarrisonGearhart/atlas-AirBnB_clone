@@ -32,7 +32,7 @@ class HBNBCommand(cmd.Cmd):
         ** class doesn't exist ** (ex: $ create MyModel)
         """
         if arg == "" or arg is None:
-            print("** class name is missing **")
+            print("** class name missing **")
         elif arg not in storage.classes():
             print("** class doesn't exist **")
         else:
@@ -107,10 +107,10 @@ class HBNBCommand(cmd.Cmd):
         """
         if arg != "":
             words = arg.split(' ')
-            if words[0] not in storage.class():
+            if words[0] not in storage.classes():
                 print("** class doesn't exist")
             else:
-                for key, obj in storage.all().items()
+                for key, obj in storage.all().items():
                     new = str(obj)
                     if type(obj).__name__ == words[0]:
                         print(new)
@@ -138,6 +138,40 @@ class HBNBCommand(cmd.Cmd):
         If the value for the attribute name doesn’t exist, print
         ** value missing ** (ex: $ update BaseModel existing-id first_name)
         """
-        
+        words = arg.splt(' ')
+        integers = ["number_rooms", "number_bathrooms", "max_guest", "price_by_night"]
+        floats = ["latitude", "longitude"]
+        if len(words) == 0:
+            print("** class name missing **")
+        elif words[0] in storage.classes():
+            if len(words) > 1:
+                key = "{}.{}",format(words[0], words[1])
+                if key in storage.all():
+                    if len(words) > 2:
+                        if len(words) > 3:
+                            if words[0] == "Place":
+                                if words[2] in integers:
+                                    try:
+                                        words[3] = int(words[3])
+                                    except:
+                                        words[3] = 0
+                                elif words[2] in floats:
+                                    try:
+                                        args[3] = float(args[3])
+                                    except:
+                                        args[3] = 0.0
+                            setattr(storage.all()[key], words[2], words[3])
+                            storage.all()[key].save()
+                        else:
+                            print("** value missing **")
+                    else:
+                        print("** attribute name missing **")
+                else:
+                    print("** no instance found **")
+            else:
+                print("** instance id missing **")
+        else:
+            print("** class doesn't exist **")
+       
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
