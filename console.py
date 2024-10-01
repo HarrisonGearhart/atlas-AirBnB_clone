@@ -24,7 +24,8 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, arg):
         """
-        do_create- Creates a new instance of BaseModel, saves it (to the JSON file)
+        do_create- Creates a new instance of BaseModel, saves it
+        (to the JSON file)
         and prints the id. Ex: $ create BaseModel
         If the class name is missing, print-
         ** class name missing ** (ex: $ create)
@@ -121,7 +122,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_update(self, *arg):
         """
-        do-update: Updates an instance based on the class name and id 
+        do-update: Updates an instance based on the class name/id 
         by adding or updating attribute (save the change into the JSON file)
         Ex: $ update BaseModel 1234-1234-1234 email "aibnb@mail.com".
         The attribute value must be casted to the attribute type
