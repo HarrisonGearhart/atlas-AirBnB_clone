@@ -142,29 +142,30 @@ class HBNBCommand(cmd.Cmd):
         ** value missing ** (ex: $ update BaseModel existing-id first_name)
         """
         if arg != "":
-            integers = ["number_rooms", "number_bathrooms",
-                         "max_guest", "price_by_night"]
+            words = arg.split(' ')
+            integers = ["number_rooms", "number_bathrooms", 
+                        "max_guest", "price_by_night"]
             floats = ["latitude", "longitude"]
-            if len(arg) == 0:
+            if len(words) == 0:
                 print("** class name missing **")
-            elif arg[0] in storage.classes():
-                if len(arg) > 1:
-                    key = "{}.{}".format(arg[0], arg[1])
+            elif words[0] in storage.classes():
+                if len(words) > 1:
+                    key = "{}.{}".format(words[0], words[1])
                     if key in storage.all():
-                        if len(arg) > 2:
-                            if len(arg) > 3:
-                                if arg[0] == "Place":
-                                    if arg[2] in integers:
+                        if len(words) > 2:
+                            if len(words) > 3:
+                                if words[0] == "Place":
+                                    if words[2] in integers:
                                         try:
-                                            arg[3] = int(arg[3])
+                                            words[3] = int(words[3])
                                         except Exception:
-                                            arg[3] = 0
-                                    elif arg[2] in floats:
+                                            words[3] = 0
+                                    elif words[2] in floats:
                                         try:
-                                            arg[3] = float(arg[3])
+                                            words[3] = float(words[3])
                                         except Exception:
-                                            arg[3] = 0.0
-                                setattr(storage.all()[key], arg[2], arg[3])
+                                            words[3] = 0.0
+                                setattr(storage.all()[key], words[2], words[3])
                                 storage.all()[key].save()
                             else:
                                 print("** value missing **")
