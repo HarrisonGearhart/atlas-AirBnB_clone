@@ -10,7 +10,7 @@ import models
 class test(unittest.TestCase):
     def test__file_path(self):
         path = models.storage._FileStorage__file_path
-        self.assertTrue(path)
+        self.assertTrue(path, "OK")
         
 
 if __name__ == "__main__":
