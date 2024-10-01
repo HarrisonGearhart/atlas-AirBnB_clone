@@ -145,7 +145,7 @@ class HBNBCommand(cmd.Cmd):
             integers = ["number_rooms", "number_bathrooms", 
                         "max_guest", "price_by_night"]
             floats = ["latitude", "longitude"]
-            if len(arg) == 1:
+            if len(arg) == 0:
                 print("** class name missing **")
             elif arg[0] in storage.classes():
                 if len(arg) > 1:
