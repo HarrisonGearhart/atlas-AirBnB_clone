@@ -147,7 +147,7 @@ class HBNBCommand(cmd.Cmd):
             floats = ["latitude", "longitude"]
             if len(arg) == 1:
                 print("** class name missing **")
-            elif arg[1] in storage.classes():
+            elif arg[0] in storage.classes():
                 if len(arg) > 1:
                     key = "{}.{}".format(arg[1], arg[2])
                     if key in storage.all():
