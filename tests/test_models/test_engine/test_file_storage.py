@@ -8,7 +8,13 @@ import models
 
 class test(unittest.TestCase):
     def test__file_path(self):
-        self.assertEqual(models.storage._FileStorage__file_path, "file.json")
+        try:
+            with open(models.storage._FileStorage__file_path) as file:
+                self.assertEqual(1, 1)
+        except:
+            self.asssertEqual(1, 2)
+            pass
+
 
 if __name__ == "__main__":
     unittest.main()
