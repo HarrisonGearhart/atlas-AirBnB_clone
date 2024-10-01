@@ -9,7 +9,7 @@ import models
 class test(unittest.TestCase):
     def test__file_path(self):
         try:
-            with open(models.storage._FileStorage__file_path) as file:
+            with open(models.storage._FileStorage__file_path, "r") as file:
                 self.assertEqual(1, 1)
         except:
             self.asssertEqual(1, 2)
