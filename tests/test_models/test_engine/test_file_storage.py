@@ -9,7 +9,8 @@ import models
 
 class test(unittest.TestCase):
     def test__file_path(self):
-        self.assertTrue("file.json")
+        laugh = models.FileStorage
+        self.assertTrue(laugh)
 
 if __name__ == "__main__":
     unittest.main()
