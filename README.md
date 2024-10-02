@@ -17,7 +17,7 @@ The console is the entry point of the command interperter. The current commands 
 * `update` - Updates an instance based on the class name and id by updating or adding attributes, then saves changes to the JSON file.
 
 ### models/base_model.py
-Contains the BaseModel Class that all other classes inherit from.
+Contains the BaseModel Class that all other classes inherit from. (BaseModel Class and all other classes are in the models directory)
 #### attributes
 * `id` - unique user id using uuid module.
 * `created_at` - The time the user was created in isoformat using datetime module.
@@ -29,18 +29,67 @@ Contains the BaseModel Class that all other classes inherit from.
 * `def to_dict(self)` - returns a dictionary containing the keys and values of an instance.
 
 ### models/amenity.py
+A class that inherits from BaseModel
+#### attributes
+* `name` - empty string
+* `state_id` empty string
 
 ### models/city.py
+A class that inherits from BaseModel
+#### attributes
+* `name` - empty string
+* `state_id` - empty string that will become State.id
 
-### models/place.py 
+### models/place.py
+A class that inherits from BaseModel
+#### attributes
+* `name` - empty string
+* `city_id` - emtpy string that will become City.id
+*  `user_id` - empty string that will become User.id
+* `description` - empty string
+* `number_rooms` - integer (0)
+* `number_bathrooms` - integer (0)
+* `max_guest` - integer (0)
+* `price_by_night` - integer (0)
+* `longitude` - float (0.0)
+* `latitude` - float (0.0)
+* 'amenity_ids` - empty list that will become a list of amenity id's (Amenity.id)
 
 ### models/review.py
+A class that inherits from BaseModel
+#### attributes
+* `place_id` - empty string
+* `user_id` - empty string
+* `text` - empty string
 
 ### models/state.py 
+A class that inherits from BaseModel
+#### attributes
+* `name` - empty string
 
 ### models/user.py
+A class that inherits from BaseModel
+#### attributes
+* `email` - empty string
+* `password` - empty string
+* `first_name` - empty string
+* `last_name` - empty string
 
 ### models/engine/file_storage.py
+The FileStorage Class handles JSON serialization and deserialization.
+It serializes an instance to a JSON file & deserializes it back to an instance.
+#### attributes
+* `__file_path` string - path to the JSON file (ex: file.json)
+* `__objects` dictionary - empty but will store all objects by the key: obj class name.id
+        (ex: to store a BaseModel object with id=12121212,
+        the key will be BaseModel.12121212)
+#### methods
+* `def all(self)` - returns the __objects dictionary
+* `def new(self, obj)` - sets the obj in __objects dictionary with key: class name.id
+* `save(self)`- serializes __objects to the JSON file (path: __file_path)
+* `reload(self)` - deserializes the JSON file to __objects
+        (only if the JSON file (__file_path) exists ; otherwise, do nothing.
+        If the file doesn’t exist, no exception should be raised)
 
 
 ## Usage
