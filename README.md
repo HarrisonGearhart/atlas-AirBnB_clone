@@ -9,14 +9,24 @@ This is the first part of an AirBnB Clone project where we develop the backend o
 ## Files and Descriptions
 ### console.py
 The console is the entry point of the command interperter. The current commands that are supported are:
-* `Exit/EOF` - exits console
-* `create` - Creates a new instance of 'BaseModel', saves it to the JSON file, then prints the id
+* `Exit/EOF` - exits console.
+* `create` - Creates a new instance of 'BaseModel', saves it to the JSON file, then prints the id.
 * `show` - Prints the string representation of an instance based on the class name and id.
 * `destroy` - Deletes an instance based on the class name and id, then saves the changes to the JSON file.
 * `all` - Prints all string representions of all instances based on the class name.
 * `update` - Updates an instance based on the class name and id by updating or adding attributes, then saves changes to the JSON file.
 
 ### models/base_model.py
+Contains the BaseModel Class that all other classes inherit from.
+#### attributes
+* `id` - unique user id using uuid module.
+* `created_at` - The time the user was created in isoformat using datetime module.
+* `updated_at` - The time any user is updated in isoformat using datetime module.
+#### methods
+* `def __init__(self, *args, **kwargs)` - Initializes the base model.
+* `def __str__(self)` - returns the string representation of the base model.
+* `def save(self)` - Updates the "updated_at" attribute with the current isoformatted datetime.
+* `def to_dict(self)` - returns a dictionary containing the keys and values of an instance.
 
 ### models/amenity.py
 
