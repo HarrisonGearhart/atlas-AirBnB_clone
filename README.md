@@ -101,4 +101,32 @@ From there you can type help to view all the command to run<br>![image](https://
 
 
 ## Flowchart
+```mermaid
+flowchart TB
+A[Console]
+B(Load JSON file)
+C[Display Prompt]
+D(Create)
+E[Destroy]
+F(Show)
+G(All)
+H(Update)
+I(Reload JSON file)
+J(Exit)
+K[Exits program]
+A-->B-->C
+C--command-->D
+C--command-->E
+C--command-->F
+C--command-->G
+C--command-->H
+C--command-->J
+D--serialze-->I
+E--serialze-->I
+F--serialze-->I
+G--serialze-->I
+H--serialze-->I
+J-->K
+I--deserialze-->B
+```
 <br>
