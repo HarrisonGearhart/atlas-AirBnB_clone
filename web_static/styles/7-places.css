@@ -2,8 +2,7 @@
     text-align: center;
 }
 
-places h1 {
-    width: 100%;
+.places h1 {
     font-size: 30px;
     text-align: left;
 }
