@@ -53,15 +53,15 @@ div.max_guest, div.number_rooms, div.number_bathrooms {
 }
 
 .max_guest {
-    background-image: url("..images/icon_group.png");
+    background-image: url("../images/icon_group.png");
 }
 
 .number_rooms {
-    background-image: url("..images/icon_bed.png");
+    background-image: url("../images/icon_bed.png");
 }
 
 .number_bathrooms {
-    background-image: url("..images/icon_bath.png");
+    background-image: url("../images/icon_bath.png");
 }
 div.user, div.description {
     text-align: left;
